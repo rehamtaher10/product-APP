@@ -1,0 +1,23 @@
+body{
+    width: 100%;
+    position: relative;
+}
+.titlee{
+    color: black;
+    font-weight: 300;
+    font-size: 30px !important;
+    font-style: italic;
+    font-family:'Courier New', Courier, monospace;
+    padding-right: 10px;
+}
+.navbar{
+    background-color: bisque !important;
+}
+.container{
+    display: flex;
+
+}
+.footer{
+    position: absolute !important;
+    bottom: 0;
+}

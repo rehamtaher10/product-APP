@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmazonHome</title>
+    <link rel="stylesheet" href="{% static 'amazon/css/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand titlee px-5 align-items-center " href="{% url 'amazon.home' %}">Amazon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active btn btn-dark text-light" aria-current="page"
+                        href="{% url 'amazon.home' %}">Home</a>
+                    <a class="nav-link btn btn-dark text-light mx-2" href="{% url 'amazon.contactUs' %}">Contact Us</a>
+                    <a class="nav-link btn btn-dark text-light" href="{% url 'amazon.aboutUs' %}">About Us</a>
+                </div>
+            </div>
+            <form class="d-flex" role="search" method="GET" action="{% url 'amazon.result' %}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-dark text-light" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container text-center d-flex justify-content-center my-2">
+        <a href="{% url 'amazon.create'%}" class="btn btn-outline-dark px-5">Add new product </a>
+    </div>
+
+
+    <div class="container justify-content-center">
+        <form method="get" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Name </label>
+                <input type="text" name="name" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description </label>
+                <input type="text" name="description" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price </label>
+                <input type="text" name="price" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Image </label>
+                <input type="file" name="image" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-outline-warning text-danger mx-2 mt-3">Submit</button>
+        </form>
+    </div>
+
+
+    <footer class='footer container-fluid bg-warning text-dark p-3 '>
+        <div class='row px-5 align-items-center '>
+            <div class='col text-start'>
+                <h4 class='text-uppercase mb-3'>Get In Touch</h4>
+                <p>
+                    reham@gmail.com
+                </p>
+                <p>
+                    0101122334455
+                </p>
+            </div>
+
+            <div class='col text-center'>
+                <button class="btn btn-outline-dark text-light">CONTACT ME</button>
+            </div>
+            <div class='col text-end'>
+                <p>Copyright &copy; 2023 KR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+body{
+    width: 100%;
+    position: relative;
+}
+.titlee{
+    font-weight: 300;
+    font-size: 30px !important;
+    font-style: italic;
+    font-family:'Courier New', Courier, monospace;
+    padding-right: 10px;
+}
+
+.footer{
+    bottom: 0;
+    position: fixed;
+}
+.categoryName{
+    font-family: 'Courier New', Courier, monospace !important;
+    font-weight: 300 !important;
+    font-style: italic !important;
+}

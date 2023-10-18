@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CategoryHome</title>
+    <link rel="stylesheet" href="{% static 'category/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand titlee px-5 align-items-center text-light" href="{% url 'category.home' %}">Category</a>
+
+            <form class="d-flex" role="search" method="GET" action="#">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-dark text-light" type="submit">Search</button>
+              </form>
+        </div>
+    </nav>
+
+    <div class="container text-center row  d-flex justify-content-center">
+      {% for category in categories %}
+      <div class="card mx-3 my-5 col" style="width: 18rem;">
+          <img src="{{category.get_image_url}}" class="card-img-top" alt="..." width="200"
+              height="200">
+          <div class="card-body">
+              <h5 class="card-title text-start" style="   font-family: 'Courier New', Courier, monospace !important;
+              font-weight: 300 !important;
+              font-style: italic !important;">{{category.name}}</h5>
+              <a href="{% url 'category.details' category.id %}" class="btn btn-outline-warning text-dark mt-3">SHOW</a>
+              <a href="{% url 'category.delete'  category.id %}" class="btn btn-outline-warning text-danger mx-2 mt-3">Delete</a>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+
+    <footer class='footer container-fluid bg-success text-light p-3 '>
+        <div class='row px-5 align-items-center '>
+          <div class='col text-start'>
+            <h4 class='text-uppercase mb-3'>Get In Touch</h4>
+            <p>
+               reham@gmail.com
+            </p>
+            <p>
+             0101122334455
+            </p>
+          </div>
+
+          <div class='col text-center'>
+            <button class="btn btn-outline-dark text-light">CONTACT ME</button>
+          </div>
+          <div class='col text-end'>
+            <p>Copyright   &copy; 2023 KR</p>
+          </div>
+        </div>
+      </footer>
+
+    <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+</body>
+
+</html>

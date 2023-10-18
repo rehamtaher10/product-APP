@@ -1,0 +1,16 @@
+body{
+    width: 100%;
+    position: relative;
+}
+.titlee{
+    font-weight: 300;
+    font-size: 30px !important;
+    font-style: italic;
+    font-family:'Courier New', Courier, monospace;
+    padding-right: 10px;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+}

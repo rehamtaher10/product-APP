@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit_Page</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+</head>
+<body>
+
+    <div class="container p-5 my-5 shadow-lg rounded-3 bg-white">
+        <div class="row align-items-center">
+          <div class="col-6 pb-5">
+            <form method="post"  enctype="multipart/form-data">
+              {% csrf_token %}
+              {{form}}
+              <button type="submit" class="btn btn-outline-warning text-dark mt-4 mx-5">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    <script src="{% static  'accounts/js/script.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+</body>
+</html>

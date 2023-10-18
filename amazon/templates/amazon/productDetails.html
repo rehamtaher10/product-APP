@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>productDetails</title>
+    <link rel="stylesheet" href="{% static 'amazon/css/details.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand titlee px-5 align-items-center " href="{% url 'amazon.home' %}">Amazon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active btn btn-dark text-light" aria-current="page"
+                        href="{% url 'amazon.home' %}">Home</a>
+                    <a class="nav-link btn btn-dark text-light mx-2" href="{% url 'amazon.contactUs' %}">Contact Us</a>
+                    <a class="nav-link btn btn-dark text-light" href="{% url 'amazon.aboutUs' %}">About Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% if product %}
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card mb-3 border-0" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4                                                                                                                                                        ">
+                    <img src="{{product.get_image_url}}" class="card-img-top" alt="..."
+                        width="200" height="200">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title text-warning my-2 productName">{{product.name}}</h3>
+                        <div>
+                            <span class="fw-bold">Description</span><br>
+                            <p class="card-text text-start">{{product.description}}</p>
+                        </div>
+                        <div class="mt-1">
+                            <p class=" fw-bold p-1" style="width: 280px;">Category: <span class="fw-normal ">{{product.category}}</span></p>
+
+                            <p class=" fw-bold p-1" style="width: 280px;">Price: <span class="fw-normal ">{{product.price}}</span></p>
+               
+                            <p class=" fw-bold p-1" style="width: 280px;">Owner: <span class="fw-normal ">{{product.owner}}</span></p>             
+
+                            <p class=" fw-bold p-0" style="width: 280px;">Created At: <small class="fw-normal">{{product.created_at}}</small></p>
+                            <p class=" fw-bold p-0" style="width: 280px;">Updated At: <small class="fw-normal">{{product.updated_at}}</small></p>
+                        </div>
+                        <div>
+                            {% if product.stock == 0 %}
+                            <p class="btn btn-danger">Out Of Stock</p>
+                            {% else %}
+                            <p class="btn btn-success">In Stock</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- <div>
+                            <p class="bg-light fw-bold p-3" style="width: 280px;">Category: <span class="fw-normal ">{{product.category}}</span></p>
+                            <p class="bg-light fw-bold p-3" style="width: 280px;">Created At: <small class="fw-normal">{{product.created_at}}</small></p>
+                            <p class="bg-light fw-bold p-3" style="width: 280px;">Updated At: <small class="fw-normal">{{product.updated_at}}</small></p>
+                          </div> -->
+
+                        <a href="{% url 'amazon.home' %}" class="btn btn-outline-warning text-dark mt-3">Back To Products</a>
+                        <a href="{% url 'product.delete'  product.id %}" class="btn btn-outline-warning text-danger mx-2 mt-3">Delete<a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <footer class='footer container-fluid bg-warning text-dark p-3 '>
+        <div class='row px-5 align-items-center '>
+            <div class='col text-start'>
+                <h4 class='text-uppercase mb-3'>Get In Touch</h4>
+                <p>
+                    reham@gmail.com
+                </p>
+                <p>
+                    0101122334455
+                </p>
+            </div>
+
+            <div class='col text-center'>
+                <button class="btn btn-outline-dark text-light">CONTACT ME</button>
+            </div>
+            <div class='col text-end'>
+                <p>Copyright &copy; 2023 KR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete_Page</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css'%}">
+</head>
+<body>
+
+    <div class="container p-5 shadow-lg rounded-3 bg-white" style="width: 900px; margin: 102px auto;">
+        <div class="row align-items-center justify-content-between ">
+          <div class="col-8">
+            <form method="post"  enctype="multipart/form-data">
+              {% csrf_token %}
+              <p class="fw-semibold fs-4 ">
+                Are You Sure You Want To Delete Your Profile!
+              </p>
+              <div class="text-center">
+                <button type="submit" class="btn btn-outline-warning text-danger  me-3">Submit</button>
+                <a href="{% url 'accounts.profile' %}" class="btn btn-outline-warning text-dark px-4">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+</body>
+</html>
